@@ -4,6 +4,7 @@ const INITIAL_STATE = {
     error: undefined,
     success: undefined,
     token: null,
+    user: null
 };
 
 const authReducer = (state = INITIAL_STATE, action) => {
@@ -13,6 +14,11 @@ const authReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 token: action.payload,
+            };
+        case AUTH_ACTION_TYPES.SUCCESS_AUTH_ME:
+            return {
+                ...state,
+                user: action.payload,
             };
         case AUTH_ACTION_TYPES.SET_ERROR:
             return {
