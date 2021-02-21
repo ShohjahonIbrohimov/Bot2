@@ -12,7 +12,8 @@ const authReducer = (state = INITIAL_STATE, action) => {
     case AUTH_ACTION_TYPES.AUTH_LOGOUT:
       return {
         ...state,
-        token: action.payload,
+        success: undefined,
+        token: null,
         user: null,
       };
     case AUTH_ACTION_TYPES.SUCCESS_LOGIN:
