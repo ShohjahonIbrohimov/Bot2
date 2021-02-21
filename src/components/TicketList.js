@@ -88,8 +88,8 @@ const TicketList = ({
     const ran = Math.random() * (99988 - 7777) + 500;
     const canvas = document.getElementById("qr-gen");
     const pngUrl = canvas
-      .toDataURL("image/png")
-      .replace("image/png", "image/octet-stream");
+      ?.toDataURL("image/png")
+      ?.replace("image/png", "image/octet-stream");
     let downloadLink = document.createElement("a");
     downloadLink.href = pngUrl;
     downloadLink.download = `${ran}_ticket.png`;
@@ -102,7 +102,7 @@ const TicketList = ({
     return (
       <>
         <QRCode
-          id='qr-gen'
+          id="qr-gen"
           style={{
             height: "212px",
             width: "212px",
@@ -119,7 +119,7 @@ const TicketList = ({
         <Button
           onClick={openAddTicketModal}
           icon={<PlusOutlined />}
-          type='primary'
+          type="primary"
           loading={loading}
         >
           Add Ticket
@@ -136,26 +136,26 @@ const TicketList = ({
       </div>
 
       <Table loading={tableLoading} bordered={true} dataSource={tickets}>
-        <Column title='Username' dataIndex='username' key='username' />
-        <Column title='Dealer' dataIndex='dealer' key='dealer' />
+        <Column title="Username" dataIndex="username" key="username" />
+        <Column title="Dealer" dataIndex="dealer" key="dealer" />
         <Column
-          title='Start'
-          dataIndex='start'
-          key='start'
-          render={(time) => <Moment format='YYYY/MM/DD'>{time}</Moment>}
+          title="Start"
+          dataIndex="start"
+          key="start"
+          render={(time) => <Moment format="YYYY/MM/DD">{time}</Moment>}
         />
 
         <Column
-          title='End'
-          dataIndex='end'
-          key='end'
-          render={(time) => <Moment format='YYYY/MM/DD'>{time}</Moment>}
+          title="End"
+          dataIndex="end"
+          key="end"
+          render={(time) => <Moment format="YYYY/MM/DD">{time}</Moment>}
         />
         <Column
-          align='center'
-          title='Ticket Image'
-          dataIndex='ticket'
-          key='ticket'
+          align="center"
+          title="Ticket Image"
+          dataIndex="ticket"
+          key="ticket"
           render={(link) => (
             <React.Fragment>
               <Row>
@@ -168,24 +168,24 @@ const TicketList = ({
                     }}
                     onClick={() => handleTicketLinkClick(link)}
                     src={QrIcon}
-                    alt='r_code_icon'
+                    alt="r_code_icon"
                   />
                 </Col>
                 <Col span={2} offset={8}>
                   <Button
                     onClick={() => downloadQRCode()}
-                    type='primary'
+                    type="primary"
                     icon={<DownloadOutlined />}
-                    size='medium'
+                    size="medium"
                   />
                 </Col>
               </Row>
             </React.Fragment>
           )}
         />
-        <ColumnGroup title='Our prices'>
-          <Column title='Adult' dataIndex='Adults' key='adult' />
-          <Column title='Child' dataIndex='forChildren' key='child' />
+        <ColumnGroup title="Our prices">
+          <Column title="Adult" dataIndex="Adults" key="adult" />
+          <Column title="Child" dataIndex="forChildren" key="child" />
         </ColumnGroup>
       </Table>
       <GModal visible={open} setVisible={setopen} width={300}>
@@ -201,9 +201,9 @@ const TicketList = ({
           <Button
             onClick={downloadQRCode}
             style={{ width: "100%" }}
-            type='primary'
+            type="primary"
             icon={<DownloadOutlined />}
-            size='large'
+            size="large"
           >
             Download
           </Button>

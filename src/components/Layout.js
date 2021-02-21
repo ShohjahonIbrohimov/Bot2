@@ -1,5 +1,7 @@
 import React from "react";
 import { Layout, Menu } from "antd";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -8,10 +10,12 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 import HeaderActions from "./HeaderActions";
+import { authLogout } from "../redux/auth/auth.actions";
+import { persistor } from "../redux/store";
 
 const { Header, Sider, Content } = Layout;
 
-export class SiderDemo extends React.Component {
+class SiderDemo extends React.Component {
   state = {
     collapsed: false,
   };
@@ -22,26 +26,31 @@ export class SiderDemo extends React.Component {
     });
   };
 
+  logoutAuth = () => {
+    this.props.authLogout();
+    persistor.purge();
+  };
+
   render() {
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className='logo' />
-          <Menu theme='dark' mode='inline' defaultSelectedKeys={["1"]}>
-            <Menu.Item key='1' icon={<UserOutlined />}>
+          <div className="logo" />
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+            <Menu.Item key="1" icon={<UserOutlined />}>
               nav 1
             </Menu.Item>
-            <Menu.Item key='2' icon={<VideoCameraOutlined />}>
+            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
               nav 2
             </Menu.Item>
-            <Menu.Item key='3' icon={<UploadOutlined />}>
-              nav 3
+            <Menu.Item key="3" icon={<UploadOutlined />}>
+              <button onClick={() => this.logoutAuth()}>AAAAAAAAA</button>
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout className='site-layout'>
+        <Layout className="site-layout">
           <Header
-            className='site-layout-background'
+            className="site-layout-background"
             style={{
               background: "#fff",
               display: "flex",
@@ -59,7 +68,7 @@ export class SiderDemo extends React.Component {
             <HeaderActions />
           </Header>
           <Content
-            className='site-layout-background'
+            className="site-layout-background"
             style={{
               margin: "24px 16px",
               padding: 24,
@@ -73,3 +82,6 @@ export class SiderDemo extends React.Component {
     );
   }
 }
+
+const AppRoute = connect(null, { authLogout })(SiderDemo);
+export default withRouter(AppRoute);
