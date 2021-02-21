@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Button } from "antd";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import {
@@ -8,6 +8,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
+  PoweroffOutlined,
 } from "@ant-design/icons";
 import HeaderActions from "./HeaderActions";
 import { authLogout } from "../redux/auth/auth.actions";
@@ -39,13 +40,14 @@ class SiderDemo extends React.Component {
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1" icon={<UserOutlined />}>
-              nav 1
+              Ticket
             </Menu.Item>
-            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              nav 2
-            </Menu.Item>
-            <Menu.Item key="3" icon={<UploadOutlined />}>
-              <button onClick={() => this.logoutAuth()}>AAAAAAAAA</button>
+            <Menu.Item
+              key="3"
+              icon={<PoweroffOutlined />}
+              onClick={() => this.logoutAuth()}
+            >
+              Logout
             </Menu.Item>
           </Menu>
         </Sider>

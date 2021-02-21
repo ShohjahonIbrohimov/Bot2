@@ -41,19 +41,19 @@ const NormalLoginForm = ({ login, error, success }) => {
   }, [error, success]);
 
   return (
-    <div className='login_form_wrapper'>
+    <div className="login_form_wrapper">
       <Form
-        name='normal_login'
-        className='login-form'
+        name="normal_login"
+        className="login-form"
         initialValues={{
           remember: true,
         }}
         onFinish={onFinish}
         style={{ width: "300px" }}
       >
-        {success && <Redirect to='/tickets' />}
+        {success && <Redirect to="/tickets" />}
         <Form.Item
-          name='email'
+          name="email"
           rules={[
             {
               required: true,
@@ -62,12 +62,12 @@ const NormalLoginForm = ({ login, error, success }) => {
           ]}
         >
           <Input
-            prefix={<UserOutlined className='site-form-item-icon' />}
-            placeholder='Email'
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder="Email"
           />
         </Form.Item>
         <Form.Item
-          name='password'
+          name="password"
           rules={[
             {
               required: true,
@@ -76,29 +76,19 @@ const NormalLoginForm = ({ login, error, success }) => {
           ]}
         >
           <Input
-            prefix={<LockOutlined className='site-form-item-icon' />}
-            type='password'
-            placeholder='Password'
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            type="password"
+            placeholder="Password"
           />
-        </Form.Item>
-        <Form.Item
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <a className='login-form-forgot' href=''>
-            Forgot password
-          </a>
         </Form.Item>
 
         <Form.Item>
           <Button
             loading={loading}
             style={{ width: "100%" }}
-            type='primary'
-            htmlType='submit'
-            className='login-form-button'
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
           >
             Log in
           </Button>
