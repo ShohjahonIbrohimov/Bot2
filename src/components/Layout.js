@@ -27,8 +27,9 @@ class SiderDemo extends React.Component {
   };
 
   logoutAuth = () => {
+    // localStorage.clear()
     this.props.authLogout();
-    persistor.purge();
+    // persistor.purge();
   };
 
   render() {
