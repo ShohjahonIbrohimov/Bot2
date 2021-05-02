@@ -39,8 +39,8 @@ const Table = () => {
     { name: "uz", placeHolder: "Name in uzbek" },
     { name: "ru", placeHolder: "Name in russian" },
     { name: "price", placeHolder: "Price" },
-    { name: "descUz", placeHolder: "Description in Uzbek" },
-    { name: "descRu", placeHolder: "Description in Russian" },
+    { name: "descUz", placeHolder: "Description in Uzbek", type: "textarea" },
+    { name: "descRu", placeHolder: "Description in Russian", type: "textarea" },
     { name: "img", placeHolder: "Product Image", type: "image" },
     { name: "video", placeHolder: "Product Video", type: "video" },
   ];

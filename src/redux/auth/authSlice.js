@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signup, login } from "./thunks";
+import { login } from "./thunks";
 
 // Define the initial state using that type
 const initialState = {
@@ -19,9 +19,6 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: {
-    [signup.fulfilled.toString()]: (state, action) => {
-      state.token = action.payload.data.token;
-    },
     [login.fulfilled.toString()]: (state, action) => {
       const data = action.payload.data;
       state.authenticated = true;

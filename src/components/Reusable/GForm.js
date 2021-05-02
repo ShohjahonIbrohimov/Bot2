@@ -3,6 +3,7 @@ import { Form, Input, Button, Select } from "antd";
 import ImageUpload from "./ImageUpload";
 
 const { Option } = Select;
+const { TextArea } = Input;
 
 const GForm = ({
   fields,
@@ -67,6 +68,19 @@ const GForm = ({
               videoUrl={videoUrl}
               setvideoUrl={setvideoUrl}
             />
+          );
+        } else if (field.type === "textarea") {
+          return (
+            <Form.Item
+              name={field.name}
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <TextArea placeholder={field.placeHolder} />
+            </Form.Item>
           );
         } else {
           return (
