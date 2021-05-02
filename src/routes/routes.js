@@ -1,27 +1,27 @@
-import { Signin, Home, TicketList } from '../pages';
-
+import React from "react";
+import { Login, Dashboard } from "../pages";
+import Home from "../components/Admin/Home/Main";
 
 export const ROUTES = [
-    {
-        path: "/",
-        key: "APP_ROOT",
-        exact: true,
-        component: () => <Home />
-    },
-    {
-        path: "/tickets",
-        key: "APP_TICKET_LIST",
-        exact: true,
-        component: () => <TicketList />
-    },
-
+  {
+    path: "/",
+    key: "APP_LOGIN",
+    exact: true,
+    component: () => <Login />,
+  },
+  {
+    path: "/dashboard",
+    key: "APP_DASHBOARD",
+    exact: false,
+    component: () => <Dashboard />,
+  },
 ];
 
-export const ROUTES_SIGN_IN_SIGN_UP = [
-    {
-        path: "/login",
-        key: "APP_SIGN_IN",
-        exact: true,
-        component: Signin
-    }
-]
+export const ADMIN_ROUTES = [
+  {
+    path: "/dashboard",
+    key: "APP_DASHBOARD",
+    exact: true,
+    component: () => <Home />,
+  },
+];
