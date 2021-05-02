@@ -17,8 +17,8 @@ const GForm = ({
 
   const onFinish = (values) => {
     defaults
-      ? handleUpdateCategory({ ...values, img: imageUrl })
-      : handleAddCategory({ ...values, img: imageUrl });
+      ? handleUpdateCategory({ ...values, img: imageUrl, video: videoUrl })
+      : handleAddCategory({ ...values, img: imageUrl, video: videoUrl });
     form.resetFields();
     setimageUrl("");
   };
@@ -33,9 +33,11 @@ const GForm = ({
         descRu: data?.desc?.ru,
       });
       setimageUrl(defaults?.data?.img);
+      setvideoUrl(defaults?.data?.video);
     } else {
       form.resetFields();
       setimageUrl("");
+      setvideoUrl("");
     }
   }, [defaults]);
 
@@ -79,7 +81,7 @@ const GForm = ({
                 },
               ]}
             >
-              <TextArea placeholder={field.placeHolder} />
+              <TextArea placeholder={field.placeHolder} rows={10} />
             </Form.Item>
           );
         } else {

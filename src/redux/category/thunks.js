@@ -24,6 +24,7 @@ const getData = ({ type, vals }) => {
           ru: vals.descRu,
         },
         img: vals.img,
+        video: vals.video,
       };
       break;
   }

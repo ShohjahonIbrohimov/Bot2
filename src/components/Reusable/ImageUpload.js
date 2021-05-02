@@ -29,9 +29,7 @@ const ImageUpload = ({
 
   return (
     <div className={styles.upload_img}>
-      {type === "image" && (
-        <Image width='100%' src={!imageUrl ? img : `${baseurl}/${imageUrl}`} />
-      )}
+      {type === "image" && <span>{imageUrl}</span>}
       {type === "video" && <span>{videoUrl}</span>}
       <label className={styles.upload_btn_wrapper}>
         {type === "image" ? "Rasm" : "Video"} yuklash
